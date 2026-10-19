@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import { Navbar } from "@/component/navbar";
 import { CustomCursor } from "@/component/CustomCursor";
+import { Footer } from "@/component/Footer";
 import { SiteBackground } from "@/component/SiteBackground";
 
 const geistSans = Geist({
@@ -68,7 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <CustomCursor />
         <Navbar />
         <main className="flex flex-1 flex-col">{children}</main>
-        {/* <Footer /> goes here once built, so it appears on every page */}
+        <Footer />
       </body>
     </html>
   );
