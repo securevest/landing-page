@@ -1,0 +1,84 @@
+/* Hide the native cursor only when the custom one is active (mouse devices).
+   Text fields keep the normal text cursor. */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+html.has-custom-cursor
+  :is(
+    input:not(
+      [type="range"],
+      [type="checkbox"],
+      [type="radio"],
+      [type="submit"],
+      [type="button"]
+    ),
+    textarea,
+    [contenteditable="true"]
+  ) {
+  cursor: text !important;
+}
+
+.sv-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  will-change: transform;
+}
+
+.sv-cursor > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.25s ease;
+}
+
+/* Ink dot with a thin white halo, so it stays visible on any button color */
+.sv-cursor-dot > span {
+  width: 10px;
+  height: 10px;
+  background: #0f2b22;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+}
+
+.sv-cursor-ring > span {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #e8a33d;
+  opacity: 0.8;
+}
+
+/* Visible states ("hidden" and "text" stay at opacity 0) */
+.sv-cursor[data-state="idle"],
+.sv-cursor[data-state="link"] {
+  opacity: 1;
+}
+
+/* Over links and buttons: grow */
+.sv-cursor-dot[data-state="link"] > span {
+  --s: 1.8;
+}
+.sv-cursor-ring[data-state="link"] > span {
+  --s: 1.7;
+  opacity: 1;
+}
+
+/* Press feedback */
+.sv-cursor[data-pressed="true"] > span {
+  --s: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-cursor > span {
+    transition: none;
+  }
+}
