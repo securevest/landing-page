@@ -4,7 +4,7 @@ export const Hero = () => {
   return (
     // Fixed at h-100 (400px) on every screen size, content centered inside.
     // No background here: the site-wide background shows through (page stays white).
-    <section className="h-100 w-full px-5 sm:px-10 sm:border-b sm:border-[#0F2B22]/10 flex flex-col justify-center items-center">
+    <section className="h-100 w-full px-5 sm:px-10 sm:border-[#0F2B22]/10 flex flex-col justify-center items-center">
       <div className="maxWidth w-full">
         <div className="sm:max-w-125 lg:max-w-150">
           <p className="mb-3 sm:mb-5 font-(family-name:--font-ibm-plex-mono) text-xs font-medium uppercase tracking-[0.14em] sm:tracking-[0.2em] text-[#9A6200]">
