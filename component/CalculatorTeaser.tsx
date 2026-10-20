@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
-import { Section, SectionHeading, mono, display } from "./Section";
+import { display, mono, Section, SectionHeading } from "./Section";
 
 export const CalculatorTeaser = () => {
   return (

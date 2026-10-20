@@ -18,23 +18,41 @@ export const Section = ({
   </section>
 );
 
+/**
+ * The one heading style for every section and page.
+ * Use as="h1" for the main heading of a page, h2 (default) for sections.
+ * Leave a gap of mt-12 sm:mt-16 before the content that follows.
+ */
 export const SectionHeading = ({
   title,
   description,
+  as: Tag = "h2",
+  align = "left",
 }: {
   title: string;
   description?: string;
-}) => (
-  <div className="max-w-2xl">
-    <h2
-      className={`${display} text-[26px] sm:text-[34px] leading-8 sm:leading-10 font-bold tracking-tight text-balance`}
-    >
-      {title}
-    </h2>
-    {description && (
-      <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#0F2B22]/70 text-pretty">
-        {description}
-      </p>
-    )}
-  </div>
-);
+  as?: "h1" | "h2";
+  align?: "left" | "center";
+}) => {
+  const center = align === "center";
+  return (
+    <div className={center ? "text-center" : undefined}>
+      <Tag
+        className={`${display} max-w-3xl text-[34px] leading-[1.08] font-medium tracking-tighter text-balance sm:text-5xl lg:text-6xl ${
+          center ? "mx-auto" : ""
+        }`}
+      >
+        {title}
+      </Tag>
+      {description && (
+        <p
+          className={`mt-5 max-w-2xl text-sm leading-relaxed text-[#0F2B22]/70 text-pretty sm:text-base ${
+            center ? "mx-auto" : ""
+          }`}
+        >
+          {description}
+        </p>
+      )}
+    </div>
+  );
+};

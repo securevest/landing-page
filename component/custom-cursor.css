@@ -39,6 +39,8 @@ html.has-custom-cursor
   transform: translate(-50%, -50%) scale(var(--s, 1));
   transition:
     transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
     opacity 0.25s ease;
 }
 
@@ -50,16 +52,31 @@ html.has-custom-cursor
   box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9);
 }
 
-.sv-cursor-ring > span {
+.sv-cursor-ring > .sv-cursor-circle {
   width: 36px;
   height: 36px;
   border: 1.5px solid #e8a33d;
   opacity: 0.8;
 }
 
+/* Text shown inside the ring in the "label" state */
+.sv-cursor-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #0f2b22;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
 /* Visible states ("hidden" and "text" stay at opacity 0) */
 .sv-cursor[data-state="idle"],
-.sv-cursor[data-state="link"] {
+.sv-cursor[data-state="link"],
+.sv-cursor[data-state="label"] {
   opacity: 1;
 }
 
@@ -67,8 +84,24 @@ html.has-custom-cursor
 .sv-cursor-dot[data-state="link"] > span {
   --s: 1.8;
 }
-.sv-cursor-ring[data-state="link"] > span {
+.sv-cursor-ring[data-state="link"] > .sv-cursor-circle {
   --s: 1.7;
+  opacity: 1;
+}
+
+/* data-cursor elements: the ring becomes a filled gold disc with a label,
+   and the dot steps aside */
+.sv-cursor-dot[data-state="label"] {
+  opacity: 0;
+}
+.sv-cursor-ring[data-state="label"] > .sv-cursor-circle {
+  --s: 2.4;
+  background: #e8a33d;
+  border-color: #e8a33d;
+  opacity: 0.95;
+  box-shadow: 0 8px 24px -8px rgba(15, 43, 34, 0.45);
+}
+.sv-cursor-ring[data-state="label"] > .sv-cursor-label {
   opacity: 1;
 }
 

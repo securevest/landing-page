@@ -26,6 +26,8 @@ export const CustomCursor = () => {
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
+    const label = ring.querySelector<HTMLElement>(".sv-cursor-label");
+
     const root = document.documentElement;
     root.classList.add("has-custom-cursor");
 
@@ -45,6 +47,14 @@ export const CustomCursor = () => {
       const el = target instanceof Element ? target : null;
       if (!el) return setState("idle");
       if (el.closest(TEXT_FIELD)) return setState("text");
+
+      // Elements with data-cursor="Label" turn the ring into a labelled disc
+      const tagged = el.closest<HTMLElement>("[data-cursor]");
+      if (tagged) {
+        if (label) label.textContent = tagged.dataset.cursor ?? "";
+        return setState("label");
+      }
+
       if (el.closest(INTERACTIVE)) return setState("link");
       setState("idle");
     };
@@ -124,7 +134,8 @@ export const CustomCursor = () => {
         className="sv-cursor sv-cursor-ring"
         data-state="hidden"
       >
-        <span />
+        <span className="sv-cursor-circle" />
+        <span className="sv-cursor-label" />
       </div>
       <div
         ref={dotRef}

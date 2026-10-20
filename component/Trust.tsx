@@ -1,6 +1,6 @@
 import type { IconType } from "react-icons";
 import { FiShield, FiUserCheck } from "react-icons/fi";
-import { Section, SectionHeading, display } from "./Section";
+import { display, Section, SectionHeading } from "./Section";
 
 const points: { title: string; description: string; Icon: IconType }[] = [
   {
@@ -21,7 +21,7 @@ export const Trust = () => {
     <Section id="trust">
       <SectionHeading title="Built to be trusted with your money." />
 
-      <ul className="mt-10 grid gap-4 md:grid-cols-2">
+      <ul className="mt-12 grid gap-4 sm:mt-16 md:grid-cols-2">
         {points.map(({ title, description, Icon }) => (
           <li
             key={title}

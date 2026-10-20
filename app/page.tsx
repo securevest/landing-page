@@ -5,6 +5,7 @@ import { CalculatorTeaser } from "@/component/CalculatorTeaser";
 import { Trust } from "@/component/Trust";
 import { Faqs } from "@/component/Faq";
 import { FinalCta } from "@/component/FinalCta";
+import { Latest } from "@/component/Latest";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <HowItWorks />
       <CalculatorTeaser />
       <Trust />
+      <Latest />
       <Faqs />
       <FinalCta />
     </>

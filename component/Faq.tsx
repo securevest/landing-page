@@ -30,11 +30,11 @@ export const Faqs = () => {
     <Section id="faqs">
       <SectionHeading
         title="Frequently asked questions"
-        description="The quick answers. Still stuck? We'll add a way to reach us soon."
+        description="The quick answers to what people ask most."
       />
 
       {/* Native <details>: accessible and keyboard friendly with no JavaScript */}
-      <div className="mt-10 max-w-3xl divide-y divide-[#0F2B22]/10 border-y border-[#0F2B22]/10">
+      <div className="mt-12 max-w-3xl sm:mt-16 divide-y divide-[#0F2B22]/10 border-y border-[#0F2B22]/10">
         {faqs.map((item) => (
           <details key={item.q} className="group py-5">
             <summary className="flex list-none items-center justify-between gap-4 rounded-sm text-base font-semibold sm:text-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0F2B22] [&::-webkit-details-marker]:hidden">

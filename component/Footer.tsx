@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { cacheLife } from "next/cache";
 
 const columns = [
   {
@@ -29,12 +28,6 @@ const columns = [
 
 const footerLink =
   "rounded-sm text-sm text-[#0F2B22]/70 transition-colors hover:text-[#0F2B22] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0F2B22]";
-
-async function CopyrightYear() {
-  "use cache";
-  cacheLife("days");
-  return <>{new Date().getFullYear()}</>;
-}
 
 export const Footer = () => {
   return (
@@ -76,7 +69,7 @@ export const Footer = () => {
 
         <div className="mt-12 border-t border-[#0F2B22]/10 pt-6">
           <p className="text-xs text-[#0F2B22]/60">
-            © <CopyrightYear /> SecureVest. All rights reserved.
+            © {new Date().getFullYear()} SecureVest. All rights reserved.
           </p>
         </div>
       </div>
