@@ -1,3 +1,4 @@
+import { cacheLife } from "next/cache";
 import Link from "next/link";
 
 const columns = [
@@ -15,6 +16,7 @@ const columns = [
       { label: "How it works", href: "/#how-it-works" },
       { label: "Calculator", href: "/calculator" },
       { label: "FAQs", href: "/#faqs" },
+      { label: "Contact us", href: "/contact" },
     ],
   },
   {
@@ -28,6 +30,14 @@ const columns = [
 
 const footerLink =
   "rounded-sm text-sm text-[#0F2B22]/70 transition-colors hover:text-[#0F2B22] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0F2B22]";
+
+// Reading the current date during render blocks prerendering in Next 16, so
+// the year is computed inside a cached component. It refreshes about daily.
+const CurrentYear = async () => {
+  "use cache";
+  cacheLife("days");
+  return <>{new Date().getFullYear()}</>;
+};
 
 export const Footer = () => {
   return (
@@ -69,7 +79,7 @@ export const Footer = () => {
 
         <div className="mt-12 border-t border-[#0F2B22]/10 pt-6">
           <p className="text-xs text-[#0F2B22]/60">
-            © {new Date().getFullYear()} SecureVest. All rights reserved.
+            © <CurrentYear /> SecureVest. All rights reserved.
           </p>
         </div>
       </div>

@@ -74,7 +74,7 @@ export const plans: Record<PlanSlug, SavingsPlan> = {
     goodToKnow: [
       "Your money stays locked until the plan matures.",
       "Example: ₦200,000 locked for 12 months pays out ₦224,000. Sample figures, for illustration.",
-      "Every account is verified with a NIN or BVN.",
+      "Accounts are identity-verified in the app.",
     ],
   },
 
@@ -113,7 +113,7 @@ export const plans: Record<PlanSlug, SavingsPlan> = {
     goodToKnow: [
       "There is no lock-in period.",
       "Your balance shows in the app as soon as you open it.",
-      "Every account is verified with a NIN or BVN.",
+      "Accounts are identity-verified in the app.",
     ],
   },
 
@@ -154,7 +154,7 @@ export const plans: Record<PlanSlug, SavingsPlan> = {
     goodToKnow: [
       "You can keep several goals active at once.",
       "Each goal has its own progress bar.",
-      "Every account is verified with a NIN or BVN.",
+      "Accounts are identity-verified in the app.",
     ],
   },
 };

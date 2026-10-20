@@ -8,6 +8,7 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { IconType } from "react-icons";
@@ -55,14 +56,26 @@ const links = [
   { label: "Calculator", href: "/calculator" },
 ];
 
-const logoClass =
-  "font-(family-name:--font-space-grotesk) text-[21px] sm:text-[28px] font-semibold tracking-tight";
+const logoLinkClass =
+  "block rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0F2B22]";
 
 const linkClass =
   "rounded-sm text-[15px] font-medium text-[#0F2B22]/70 transition-colors hover:text-[#0F2B22] aria-expanded:text-[#0F2B22] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0F2B22]";
 
 const mobileLinkClass =
   "rounded-sm font-(family-name:--font-space-grotesk) text-3xl font-semibold tracking-tight text-[#0F2B22] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0F2B22]";
+
+// Logo file lives at public/logo.png (3165 x 582)
+const Logo = () => (
+  <Image
+    src="/logo.png"
+    alt="SecureVest"
+    width={3165}
+    height={582}
+    priority
+    className="h-8 w-auto sm:h-9"
+  />
+);
 
 const SavingsLink = ({
   item,
@@ -211,8 +224,12 @@ export const Navbar = () => {
       <div className="maxWidth w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-14">
-            <Link href="/" className={logoClass}>
-              SecureVest
+            <Link
+              href="/"
+              aria-label="SecureVest home"
+              className={logoLinkClass}
+            >
+              <Logo />
             </Link>
 
             <nav aria-label="Primary" className="hidden lg:block">
@@ -309,8 +326,13 @@ export const Navbar = () => {
         }`}
       >
         <div className="flex items-center justify-between px-5 sm:px-10 py-5">
-          <Link href="/" onClick={closeAll} className={logoClass}>
-            SecureVest
+          <Link
+            href="/"
+            onClick={closeAll}
+            aria-label="SecureVest home"
+            className={logoLinkClass}
+          >
+            <Logo />
           </Link>
           <button
             ref={closeButtonRef}
