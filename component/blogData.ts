@@ -67,6 +67,7 @@ const allPosts: Post[] = [
     category: "Flexible savings",
     date: "2026-10-07",
     tone: "grey",
+    videoId: "LIdrryszN_g",
     body: [
       {
         type: "p",
@@ -101,6 +102,7 @@ const allPosts: Post[] = [
     category: "Target savings",
     date: "2026-09-30",
     tone: "mint",
+    videoId: "58hOc5_H6yg",
     body: [
       {
         type: "p",
@@ -129,12 +131,13 @@ const allPosts: Post[] = [
     category: "Getting started",
     date: "2026-09-23",
     tone: "cream",
+    videoId: "OdYxJBuglhs",
     body: [
       { type: "p", text: "Getting started takes three steps." },
       { type: "h2", text: "1. Create and verify your account" },
       {
         type: "p",
-        text: "Sign up with your email, a username and a password, then confirm the one-time password (OTP) we send to your email. In the app, you then verify your identity with face verification, your BVN and your NIN to open a Tier 1 account.",
+        text: "Sign up with your phone number and confirm the code we send. Then verify your identity with your NIN or BVN. Every account is verified this way.",
       },
       { type: "h2", text: "2. Fund your wallet" },
       {
